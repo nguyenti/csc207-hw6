@@ -1,13 +1,8 @@
 package edu.grinnell.csc207.nguyenti.ushahidi;
 
-import edu.grinnell.glimmer.ushahidi.UshahidiClient;
-import edu.grinnell.glimmer.ushahidi.UshahidiWebClient;
-import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -22,6 +17,8 @@ import android.widget.EditText;
  */
 
 public class MainActivity extends Activity {
+	
+	public final static String INPUT = "edu.grinnell.csc207.nguyenti.ushahidi.MESSAGE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +36,8 @@ public class MainActivity extends Activity {
 	public void getInstallation(View v) throws Exception {
 		EditText text = (EditText) findViewById(R.id.editText1);
 		String input = text.getText().toString();
-
 		Intent intent = new Intent(this, Information.class);
+		intent.putExtra(INPUT, input);
 		startActivity(intent);
 		/*try {
 			//test if input is a valid Ushahidi URL
