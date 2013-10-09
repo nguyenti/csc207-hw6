@@ -1,8 +1,19 @@
 package frenchFlagProblem;
 
+/**
+ * Class that contains a method that sorts an array of 'R', 'W', and 'B's
+ * 
+ * @author Mark Lewis
+ * @author Tiffany Nguyen
+ * @author Daniel Goldstein
+ */
+
 public class FlagProblem {
 	/**
 	 * Precondition: unsorted contains only capital Rs, Ws, and Bs
+	 * 
+	 * Postcondition: All 'R's from unsorted are in the beginning of the array followed by all the
+	 * 	'W's then all of the 'B's are at the end.
 	 */
 	public static char[] sortFlag(char[] unsorted) {
 		// need to keep track of boundaries
