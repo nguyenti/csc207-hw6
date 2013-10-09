@@ -39,32 +39,6 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, Information.class);
 		intent.putExtra(INPUT, input);
 		startActivity(intent);
-		/*try {
-			//test if input is a valid Ushahidi URL
-			@SuppressWarnings("unused")
-			UshahidiClient webclient = new UshahidiWebClient(input);
-			Intent intent = new Intent(this, Information.class);
-			startActivity(intent);
-		} catch (Exception e) {
-			e.printStackTrace();
-			AlertDialog error = new AlertDialog.Builder(this).create();
-			error.setCancelable(false);
-			error.setMessage("Invalid URL");
-			//check
-			error.setButton(1, "OK", new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.dismiss();
-				}
-			});
-			error.show();
-		}*/
-	}
-
-	public void onClick(View v) {
-		// MediaPlayer play = MediaPlayer.create(getApplicationContext(),
-		// R.raw.lionrawr);
-		// play.start();
 	}
 
 }
