@@ -48,7 +48,7 @@ public class Information extends Activity {
 				// Grab the listView object from the xml
 				infoList = (ListView) findViewById(R.id.listView1);
 				Log.e("", "post input " + input);
-				UshahidiClient webclient = UshahidiUtils.SAMPLE_CLIENT;
+				UshahidiClient webclient = new UshahidiWebClient(input);
 				Log.e("", "post webclient");
 				String[] listIncident = new String[5];
 				Log.e("Info", "pre-loop");
@@ -71,45 +71,6 @@ public class Information extends Activity {
 
 	private ListView infoList;
 	private ArrayAdapter<String> listAdapter;
-
-//	public static ushahidiInfo incidentAsString(UshahidiIncident incident) {
-//		String idNumber = "Incident #: " + incident.getId();
-//		String title = "\tTitle: " + incident.getTitle() + "\n";
-//		String description = "\tDescription: " + incident.getDescription();
-//		String date = "\tDate: " + (incident.getDate().get(Calendar.MONTH) + 1)
-//				+ "/" + incident.getDate().get(Calendar.DATE) + "/"
-//				+ incident.getDate().get(Calendar.YEAR) + "\n";
-//		String location = "\tLocation: " + incident.getLocation() + "\n";
-//		String status = "\tStatus: (" + incident.getMode() + ", "
-//				+ incident.getActive() + ", " + incident.getVerified() + ")";
-//		ushahidiInfo data = new ushahidiInfo(idNumber, title, description,
-//				date, location, status);
-//		return data;
-//	} // incidentAsString
-
-	public void createList(String input) throws Exception {
-		Log.e("", "Begin createList");
-		// Grab the listView object from the xml
-		infoList = (ListView) findViewById(R.id.listView1);
-		Log.e("", "post input " + input);
-		UshahidiClient webclient = new UshahidiWebClient(input);
-		Log.e("", "post webclient");
-		String[] listIncident = new String[5];
-		Log.e("Info", "pre-loop");
-		UshahidiIncident incident;
-		for (int i = 0; i < 5 && webclient.hasMoreIncidents(); i++) {
-			incident = webclient.nextIncident();
-			listIncident[i] = "Incident #: " + incident.getId() + "\n"
-					+ "\tTitle: " + incident.getTitle();
-		}
-		Log.e("l", "Post-loop");
-		// Fill the ArrayAdapter with our String array
-		listAdapter = new ArrayAdapter<String>(this, R.layout.simple_row,
-				listIncident);
-
-		// Get the information from the ArrayAdapter into our list
-		infoList.setAdapter(listAdapter);
-	} // createList
 
 	public void getInfo(View v) {
 		Intent intent = new Intent(this, Information.class);
